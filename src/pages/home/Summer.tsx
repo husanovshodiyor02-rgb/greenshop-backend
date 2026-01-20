@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Bn1 from "../../assets/img/bn1.png";
 import Bn2 from "../../assets/img/bn2.png";
 const banners = [
