@@ -5,7 +5,7 @@ interface InitialStateType{
     authorizationModalVisiblity: boolean;
 }
 const initialState: InitialStateType = {
-    authorizationModalVisiblity: true,
+    authorizationModalVisiblity: false,
 };
 export const modalSlice = createSlice ({
     name: "modal-slice",

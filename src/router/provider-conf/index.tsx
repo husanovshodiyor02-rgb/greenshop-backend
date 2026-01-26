@@ -3,6 +3,7 @@ import React from 'react'
 import Modals from '../../components/modals';
 import { Provider } from 'react-redux';
 import { store } from '../../redux';
+import { Toaster } from 'react-hot-toast';
 
 const ProviderConf = ({children}:{children:React.ReactNode}) => {
     const queryClient = new QueryClient();
@@ -12,6 +13,7 @@ const ProviderConf = ({children}:{children:React.ReactNode}) => {
         <QueryClientProvider client={queryClient}>
             {children}
             <Modals/>
+            <Toaster/>
         </QueryClientProvider>
         </Provider>
     </div>

@@ -47,12 +47,12 @@ const Summer = () => {
             <img
               src={item.img}
               alt={item.title}
-              className="w-[200px] h-[200px] object-contain"
+              className="w-50 h-50 object-contain"
             />
 
             <div>
               <h2 className="font-bold text-xl text-[#3d3d3d]">{item.title}</h2>
-              <p className="text-[#727272] mt-2 w-[260px] leading-5">
+              <p className="text-[#727272] mt-2 w-65 leading-5">
                 {item.text}
               </p>
 

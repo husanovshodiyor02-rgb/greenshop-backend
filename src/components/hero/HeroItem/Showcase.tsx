@@ -1,10 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 
-import Img1 from "../../assets/img/img1.png";
-import Img2 from "../../assets/img/img2.png";
+import Img1 from "../../../assets/img/img1.png";
+import Img2 from "../../../assets/img/img2.png";
 
-// Swiper styles
+
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -25,7 +25,7 @@ const Showcase = () => {
         {[1, 2, 3].map((_, index) => (
           <SwiperSlide key={index}>
             <div className="h-full flex items-center justify-between px-4 md:px-12 lg:px-16 py-8">
-              {/* TEXT */}
+            
               <div className="max-w-xl">
                 <h3 className="font-medium text-sm tracking-widest uppercase text-[#3d3d3d]">
                   Welcome to GreenShop
@@ -42,17 +42,17 @@ const Showcase = () => {
                   Jungle. Order your favorite plants!
                 </p>
 
-                <button className="mt-10 w-[140px] h-10 rounded-md bg-[#46a358] font-semibold uppercase text-white">
+                <button className="mt-10 w-35 h-10 rounded-md bg-[#46a358] font-semibold uppercase text-white">
                   Shop Now
                 </button>
               </div>
 
-              {/* IMAGE */}
+             
               <div className="hidden md:block relative">
                 <img
                   src={Img1}
                   alt="main plant"
-                  className="w-[450px] h-auto object-cover"
+                  className="w-112.5 h-auto object-cover"
                 />
 
                 <img

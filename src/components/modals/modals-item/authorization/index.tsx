@@ -19,9 +19,9 @@ const AuthorizationModal = () => {
     >
       <div className="mt-10">
         <div className="flex items-center justify-center text-xl gap-4">
-          <div onClick={() => setState("login")}>Login</div>
-          <div className="bg-[#3D3D3D] w-[1px] h-5"></div>
-          <div onClick={() => setState("register")}>Register</div>
+          <div onClick={() => setState("login")} className={`cursor-pointer ${state === "login" && "text-nav"}`}>Login</div>
+          <div className="bg-[#3D3D3D] w-px h-5"></div>
+          <div onClick={() => setState("register")} className={`cursor-pointer ${state === "register" && "text-nav"}`}>Register</div>
         </div>
         {state === "login" ? <Login /> : <Register />}
       </div>
