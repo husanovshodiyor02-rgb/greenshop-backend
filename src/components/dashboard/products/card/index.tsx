@@ -7,7 +7,7 @@ const Card: FC<ProductType> = (props) => {
 
     const icon_style =
       "w-[35px] h-[35px] bg-white rounded-lg flex justify-center items-center text-[#353535] border border-white hover:border-nav hover:text-[#46A358] hover:cursor-pointer shadow-md transition-all duration-300";
-    const { data } = useReduxSelector((state) => state.shopSlice);
+    const { } = useReduxSelector((state) => state.shopSlice);
     const dispatch = useReduxDispatch();
     return (
       <>

@@ -1,11 +1,11 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import { useEffect, useState } from "react";
+import type { ChangeEvent, FormEvent } from "react";
 import axios from "axios";
-
 
 interface AddressType {
   country: string;
   city: string;
-  street: string; 
+  street: string;
   extra_address: string;
   state: string;
   zip: string;
@@ -14,7 +14,6 @@ interface AddressType {
 const Address = () => {
   const [loading, setLoading] = useState(false);
 
-  
   const [addressData, setAddressData] = useState<AddressType>({
     country: "",
     city: "",
@@ -23,7 +22,6 @@ const Address = () => {
     state: "",
     zip: "",
   });
-
 
   useEffect(() => {
     const fetchAddress = async () => {
@@ -48,7 +46,6 @@ const Address = () => {
     fetchAddress();
   }, []);
 
-
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setAddressData((prev) => ({
@@ -63,7 +60,6 @@ const Address = () => {
 
     try {
       const token = localStorage.getItem("access_token");
-
 
       await axios.post("user/address", addressData, {
         headers: { Authorization: `Bearer ${token}` },
@@ -88,7 +84,6 @@ const Address = () => {
         onSubmit={handleSubmit}
         className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6"
       >
-     
         <div className="flex flex-col gap-2">
           <label className="text-[15px] text-[#3D3D3D]">
             Country / Region <span className="text-red-500">*</span>
@@ -103,7 +98,6 @@ const Address = () => {
             className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
           />
         </div>
-
 
         <div className="flex flex-col gap-2">
           <label className="text-[15px] text-[#3D3D3D]">
@@ -135,7 +129,6 @@ const Address = () => {
           />
         </div>
 
-
         <div className="flex flex-col gap-2">
           <label className="text-[15px] text-[#3D3D3D]">
             Extra address <span className="text-red-500">*</span>
@@ -146,12 +139,10 @@ const Address = () => {
             value={addressData.extra_address}
             onChange={handleInputChange}
             placeholder="Type your Extra address..."
-
             className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
           />
         </div>
 
-    
         <div className="flex flex-col gap-2">
           <label className="text-[15px] text-[#3D3D3D]">
             State <span className="text-red-500">*</span>
@@ -167,7 +158,6 @@ const Address = () => {
           />
         </div>
 
-      
         <div className="flex flex-col gap-2">
           <label className="text-[15px] text-[#3D3D3D]">
             Zip <span className="text-red-500">*</span>
@@ -182,7 +172,6 @@ const Address = () => {
             className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
           />
         </div>
-
 
         <div className="md:col-span-1 mt-4">
           <button
