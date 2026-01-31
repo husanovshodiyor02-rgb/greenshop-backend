@@ -1,4 +1,5 @@
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import type { FC } from "react";
 import { useReduxDispatch } from "../../hooks/useRedux";
 import { setAuthorizationModalVisiblity } from "../../redux/modal-store";
 import BannerImg from "../../assets/img/blog.png";

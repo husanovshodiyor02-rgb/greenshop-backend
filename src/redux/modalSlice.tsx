@@ -53,7 +53,7 @@ const modalSlice = createSlice({
     setAddNewPlantModalVisibility(state, { payload }) {
       state.addNewPlantModalVisivility = payload;
     },
-    setGoogleAuthModalVisibility(state, { payload }) {
+    setGoogleAuthModalVisibility(state,  _payload ) {
       state.googleAuthModalVisibility = !state.googleAuthModalVisibility;
     },
   },

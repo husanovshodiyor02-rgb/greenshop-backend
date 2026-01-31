@@ -1,5 +1,6 @@
 
-import { useState, useEffect, ChangeEvent } from "react"; 
+import { useState, useEffect } from "react"; 
+import type { ChangeEvent } from "react";
 import { useSelector } from "react-redux";
 import { Modal, Radio, message } from "antd";
 import { useNavigate } from "react-router-dom";

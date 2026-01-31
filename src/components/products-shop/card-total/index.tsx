@@ -4,14 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import Prices from "./prices";
 import { useRef } from "react";
 import { useGetCoupon } from "../../../hooks/useQuery/useQueryAction";
-import { notificationApi } from "../../../generic/notificationApi";
+
 
 
 
 const CardTotal = () => {
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
-  const notify = notificationApi();
+
   const { mutate, isPending } = useGetCoupon();
 
   const getCoupon = () => {

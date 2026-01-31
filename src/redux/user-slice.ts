@@ -23,7 +23,7 @@ export const userSlice = createSlice({
       state.isAuth = true;
     },
     logoutUser(state) {
-      state.user = null;
+      state.user = undefined;
       state.isAuth = false;
     },
   },

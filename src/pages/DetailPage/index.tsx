@@ -53,8 +53,8 @@ const DetailPage = () => {
     );
 
 
-  const images = product.detailed_images?.length
-    ? product.detailed_images
+  const images = product.detail_image?.length
+    ? product.detail_image
     : [product.main_image];
 
   const currentImage = selectedImage || product.main_image;
@@ -75,7 +75,6 @@ const DetailPage = () => {
     <div>
       <Header />
       <div className="container mx-auto px-4 md:px-10 mt-6 mb-20 max-w-[1440px]">
-   
         <div className="mb-8 text-sm text-[#3D3D3D] flex items-center">
           <span
             onClick={() => navigate("/")}
@@ -83,16 +82,12 @@ const DetailPage = () => {
           >
             <CiCircleChevLeft className="text-nav text-lg" /> back to products
           </span>
-         
         </div>
 
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-14">
-       
           <div className="flex flex-col-reverse md:flex-row gap-4 h-fit">
-     
             <div className="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto md:h-[450px] scrollbar-hide py-2 md:py-0">
-              {images.map((img, idx) => (
+              {images.map((img: string, idx: number) => (
                 <div
                   key={idx}
                   onClick={() => setSelectedImage(img)}
@@ -115,7 +110,6 @@ const DetailPage = () => {
               ))}
             </div>
 
-      
             <div className="flex-1 bg-[#FBFBFB] border border-[#EAEAEA] rounded-lg relative overflow-hidden h-[350px] md:h-[450px] flex items-center justify-center group">
               <div className="w-full h-full flex items-center justify-center p-6 transition-transform duration-500 hover:scale-105">
                 <Image
@@ -130,7 +124,6 @@ const DetailPage = () => {
             </div>
           </div>
 
-         
           <div className="flex flex-col">
             <h1 className="text-[20px] md:text-[24px] font-bold text-[#3D3D3D] leading-tight">
               {product.title}
@@ -167,19 +160,24 @@ const DetailPage = () => {
               <h3 className="font-semibold text-[#3D3D3D] text-[15px] mb-2">
                 Size:
               </h3>
-              
+
               <div className="flex gap-3">
-                <p className="hover:text-nav border border-[#EAEAEA] text-[#727272] rounded-full w-9 h-9 flex items-center justify-center text-[14px] font-semibold hover:border-nav">S</p>
-                <p className="hover:text-nav border border-[#EAEAEA] text-[#727272] rounded-full w-9 h-9 flex items-center justify-center text-[14px] font-semibold hover:border-nav">M</p>
-                <p className="hover:text-nav border border-[#EAEAEA] text-[#727272] rounded-full w-9 h-9 flex items-center justify-center text-[14px] font-semibold hover:border-nav">L</p>
-                <p className="hover:text-nav border border-[#EAEAEA] text-[#727272] rounded-full w-9 h-9 flex items-center justify-center text-[14px] font-semibold hover:border-nav">XL</p>
+                <p className="hover:text-nav border border-[#EAEAEA] text-[#727272] rounded-full w-9 h-9 flex items-center justify-center text-[14px] font-semibold hover:border-nav">
+                  S
+                </p>
+                <p className="hover:text-nav border border-[#EAEAEA] text-[#727272] rounded-full w-9 h-9 flex items-center justify-center text-[14px] font-semibold hover:border-nav">
+                  M
+                </p>
+                <p className="hover:text-nav border border-[#EAEAEA] text-[#727272] rounded-full w-9 h-9 flex items-center justify-center text-[14px] font-semibold hover:border-nav">
+                  L
+                </p>
+                <p className="hover:text-nav border border-[#EAEAEA] text-[#727272] rounded-full w-9 h-9 flex items-center justify-center text-[14px] font-semibold hover:border-nav">
+                  XL
+                </p>
               </div>
             </div>
 
-      
             <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
-         
-
               <div className="flex gap-3 w-full sm:w-auto">
                 <button
                   onClick={handleBuyNow}
@@ -201,7 +199,6 @@ const DetailPage = () => {
               </div>
             </div>
 
-        
             <div className="mt-8 text-[14px] text-[#727272] flex flex-col gap-2">
               <p>
                 <span className="text-[#A5A5A5] w-24 inline-block">SKU:</span>{" "}

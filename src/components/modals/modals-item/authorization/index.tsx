@@ -11,7 +11,7 @@ const AuthorizationModal = () => {
   );
   const dispatch = useReduxDispatch();
   const [state, setState] = useState<string>("login");
-  onSuccess: (data) => {
+  onSuccess: (data: any) => {
     const { token } = data;
 
     localStorage.setItem("token", token);

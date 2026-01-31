@@ -11,7 +11,7 @@ const Login = () => {
     const {mutate, isPending} =useLoginMutation();
 const login = (e: {email: string, password: string}) => {
     mutate(e);}
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       const { token } = data;
 
       localStorage.setItem("token", token);

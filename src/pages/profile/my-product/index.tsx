@@ -28,7 +28,7 @@ const MyProducts = () => {
     <LoadingOutlined style={{ fontSize: 40, color: "#46A358" }} spin />
   );
 
-  const [search, setSearch] = useState("");
+  const [search] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState(search);
 
   useEffect(() => {
