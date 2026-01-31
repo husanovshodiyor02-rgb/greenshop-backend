@@ -39,7 +39,7 @@ const Profile = () => {
       <Header />
       <div className="w-[90%] m-auto px-5 py-10 flex flex-col md:flex-row gap-8">
    
-        <div className="w-full md:w-[310px]">
+        <div className="w-full md:w-77.5">
           <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
         </div>
 

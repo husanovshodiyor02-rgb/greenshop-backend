@@ -140,7 +140,7 @@ const AccountDetails = () => {
             value={formData.firstName}
             onChange={handleInputChange}
             required
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -155,7 +155,7 @@ const AccountDetails = () => {
             value={formData.lastName}
             onChange={handleInputChange}
             required
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -170,7 +170,7 @@ const AccountDetails = () => {
             value={formData.email}
             onChange={handleInputChange}
             required
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -179,7 +179,7 @@ const AccountDetails = () => {
           <label className="text-[15px] text-[#3D3D3D]">
             Phone number <span className="text-red-500">*</span>
           </label>
-          <div className="flex border border-[#EAEAEA] rounded-[3px] overflow-hidden focus-within:border-[#46A358]">
+          <div className="flex border border-[#EAEAEA] rounded-[3px] overflow-hidden focus-within:border-nav">
             <span className="bg-gray-50 px-3 py-2 text-[#3D3D3D] border-r border-[#EAEAEA]">
               +998
             </span>
@@ -205,7 +205,7 @@ const AccountDetails = () => {
             value={formData.username}
             onChange={handleInputChange}
             placeholder="Enter your username..."
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -216,7 +216,7 @@ const AccountDetails = () => {
           </label>
           <div className="flex items-center gap-4">
 
-            <div className="w-[50px] h-[50px] rounded-full bg-gray-100 border flex justify-center items-center overflow-hidden">
+            <div className="w-12.5 h-12.5 rounded-full bg-gray-100 border flex justify-center items-center overflow-hidden">
               {formData.photoUrl ? (
                 <img
                   src={formData.photoUrl}
@@ -229,7 +229,7 @@ const AccountDetails = () => {
             </div>
 
      
-            <label className="px-4 py-2 border border-[#46A358] text-[#46A358] rounded-[3px] hover:bg-[#46A358] hover:text-white transition-all text-sm font-medium cursor-pointer flex items-center gap-2">
+            <label className="px-4 py-2 border border-nav text-nav rounded-[3px] hover:bg-nav hover:text-white transition-all text-sm font-medium cursor-pointer flex items-center gap-2">
               <UploadOutlined /> Upload
               <input
                 type="file"
@@ -259,7 +259,7 @@ const AccountDetails = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`bg-[#46A358] sm:w-110 w-auto text-white px-6 py-2.5 rounded-[3px] font-medium transition-all ${
+            className={`bg-nav sm:w-110 w-auto text-white px-6 py-2.5 rounded-[3px] font-medium transition-all ${
               loading ? "opacity-70 cursor-not-allowed" : "hover:bg-[#3d914d]"
             }`}
           >

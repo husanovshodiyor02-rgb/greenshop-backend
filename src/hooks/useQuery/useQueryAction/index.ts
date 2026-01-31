@@ -6,6 +6,8 @@ import { setAuthorizationModalVisiblity } from '../../../redux/modal-store';
 import { useReduxDispatch } from '../../useRedux';
 import { getUser } from '../../../redux/user-slice';
 import { signInWithGoogle } from '../../../config';
+import {} from "../"
+import { getCoupon } from '../../../redux/shop-slice';
 
 
 export const useLoginMutation = () => {
@@ -18,7 +20,9 @@ export const useLoginMutation = () => {
         onSuccess: (data) => {
           notify("login");
             const { token, user } = data;
-
+            localStorage.setItem("token", token);
+            window.dispatchEvent(new Event("auth-change"));
+            
             Cookies.set("token", token);
             Cookies.set("user", JSON.stringify(user));
             dispatch(getUser(user));
@@ -31,7 +35,6 @@ export const useLoginMutation = () => {
         },
     });
 };
-
 
 
 export const useRegisterMutation = () => {
@@ -92,3 +95,23 @@ export const useOnAuthGoogle = () => {
   });
 }
 
+export const useGetCoupon = () => {
+  const axios = useAxios();
+  const dispatch = useReduxDispatch();
+  const notify = notificationApi();
+  return useMutation({
+    mutationKey: ["coupon"],
+    mutationFn: ({coupon_code}: {coupon_code: string}) =>
+      axios({ url: "features/coupon", param: { coupon_code } }),
+
+    onSuccess(data) {
+      dispatch(getCoupon(data?.discount_for));
+      notify("cupon")
+    },
+    onError(error: { status: number }) {
+      if (error.status === 400){
+        notify("not_coupon")
+      }
+    },
+  });
+};

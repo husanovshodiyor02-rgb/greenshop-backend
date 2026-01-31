@@ -23,7 +23,7 @@ const Category = () => {
     );
      const { categoryLoader } = loaderApi();
   return (
-    <div className="bg-[#f2f2f2] p-4 h-225 rounded-[5px]">
+    <div className="bg-[#f2f2f2] p-4 h-215 rounded-[5px]">
         <h2 className="text-[#3d3d3d] font-bold">Categories</h2>
         <div className="p-2 flex flex-col gap-2.5">
             {isLoading || isError ? categoryLoader() : data?.map((value) => (

@@ -102,3 +102,10 @@ export interface ShopCartType extends ProductType {
     counter: number;
     userPrice: number;
 }
+
+export interface CouponType {
+  code: string;
+  discount_for: number;
+  id: number;
+  title: string;
+}

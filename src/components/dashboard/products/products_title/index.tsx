@@ -14,7 +14,7 @@ import { useSearchParamsHandler } from "../../../../hooks/paramsApi";
             setParam({ sort:e });
         }
         return (
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-4">
             <div className="flex items-center gap-4 cursor-pointer">
               {products_title.map((value) => (
                 <h3

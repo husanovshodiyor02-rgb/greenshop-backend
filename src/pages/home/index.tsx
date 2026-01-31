@@ -6,6 +6,7 @@ import Summer from "./Summer"
 import Blog1 from "./Blog1";
 import Dashboard from "../../components/dashboard";
 import Hero from "../../components/hero";
+import Garden from "./Garden";
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
       </div>
       <Summer/>
       <Blog1/>
+      <Garden/>
       <Footer1/>
     </div>
   )

@@ -29,7 +29,7 @@ const Address = () => {
         const token = localStorage.getItem("token");
 
         const response = await axios.get(
-          "https://your-api-url.com/api/user/address",
+          "user/address",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -76,9 +76,6 @@ const Address = () => {
 
   return (
     <div className="w-full">
-      <h3 className="text-[18px] font-bold text-[#3D3D3D] mb-5">
-        Billing Address
-      </h3>
 
       <form
         onSubmit={handleSubmit}
@@ -95,7 +92,7 @@ const Address = () => {
             onChange={handleInputChange}
             placeholder="Select your country / region..."
             required
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -110,7 +107,7 @@ const Address = () => {
             onChange={handleInputChange}
             placeholder="Type your town city..."
             required
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -125,7 +122,7 @@ const Address = () => {
             onChange={handleInputChange}
             placeholder="Type your Street address..."
             required
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -139,7 +136,7 @@ const Address = () => {
             value={addressData.extra_address}
             onChange={handleInputChange}
             placeholder="Type your Extra address..."
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -154,7 +151,7 @@ const Address = () => {
             onChange={handleInputChange}
             placeholder="Type your state..."
             required
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -169,7 +166,7 @@ const Address = () => {
             onChange={handleInputChange}
             placeholder="Type your Extra zip..."
             required
-            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-[#46A358]"
+            className="border border-[#EAEAEA] rounded-[3px] px-3 py-2 outline-none focus:border-nav"
           />
         </div>
 
@@ -177,7 +174,7 @@ const Address = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`bg-[#46A358] sm:w-110 w-auto text-white px-10 py-2.5 rounded-[3px] font-medium transition-all ${
+            className={`bg-nav sm:w-110 w-auto text-white px-10 py-2.5 rounded-[3px] font-medium transition-all ${
               loading ? "opacity-70 cursor-not-allowed" : "hover:bg-[#3d914d]"
             }`}
           >

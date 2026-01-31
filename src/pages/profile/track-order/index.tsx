@@ -100,7 +100,7 @@ const TrackOrder = () => {
               </div>
 
               
-              <div className="col-span-1 font-medium text-[#46A358]">
+              <div className="col-span-1 font-medium text-nav">
                 $ {order.total_price.toFixed(2)}
               </div>
 
@@ -110,7 +110,7 @@ const TrackOrder = () => {
                   onClick={() =>
                     alert(`Order ID: ${order._id} haqida batafsil...`)
                   }
-                  className="text-[#46A358] hover:underline cursor-pointer"
+                  className="text-nav hover:underline cursor-pointer"
                 >
                   More info
                 </button>
@@ -128,3 +128,4 @@ const TrackOrder = () => {
 };
 
 export default TrackOrder;
+

@@ -11,6 +11,13 @@ const AuthorizationModal = () => {
   );
   const dispatch = useReduxDispatch();
   const [state, setState] = useState<string>("login");
+  onSuccess: (data) => {
+    const { token } = data;
+
+    localStorage.setItem("token", token);
+    window.dispatchEvent(new Event("auth-change"));
+  };
+  
   return (
     <Modal
       open={authorizationModalVisiblity}

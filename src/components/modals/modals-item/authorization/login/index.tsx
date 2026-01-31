@@ -11,6 +11,14 @@ const Login = () => {
     const {mutate, isPending} =useLoginMutation();
 const login = (e: {email: string, password: string}) => {
     mutate(e);}
+    onSuccess: (data) => {
+      const { token } = data;
+
+      localStorage.setItem("token", token);
+      window.dispatchEvent(new Event("auth-change"));
+    };
+    
+    localStorage.getItem("token");
 
     const {mutate: mutateGoogle} = useOnAuthGoogle();
   return (

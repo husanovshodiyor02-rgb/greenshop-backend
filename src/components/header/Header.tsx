@@ -95,9 +95,19 @@ const Header = () => {
             <div className="flex items-center gap-3 mt-3">
               <Search className="text-[#3d3d3d]" />
               <Bell className="text-[#3d3d3d]" />
-              <img src={Shop} alt="shop" className="h-6 w-6" />
+              <img
+                src={Shop}
+                alt="shop"
+                className="h-6 w-6"
+                onClick={() => navigate("/shop")}
+              />
               <button
-                onClick={() => dispatch(setAuthorizationModalVisiblity())}
+                onClick={() => {
+                  if (isAuth) {
+                    return navigate("/profile");
+                  }
+                  dispatch(setAuthorizationModalVisiblity());
+                }}
                 className="bg-[#46a358] rounded-lg font-medium text-white py-1 px-4 cursor-pointer"
               >
                 {user ? user.name : "Login"}

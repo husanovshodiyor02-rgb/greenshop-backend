@@ -1,8 +1,8 @@
-
 import { LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-
-
+import Cookies from "js-cookie";
+import { useReduxDispatch } from "../../hooks/useRedux";
+import { logoutUser } from "../../redux/user-slice";
 
 interface SidebarProps {
   activeTab: string;
@@ -11,6 +11,27 @@ interface SidebarProps {
 
 const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
   const navigate = useNavigate();
+  const dispatch = useReduxDispatch();
+
+
+  const handleLogout = () => {
+    const confirmLogout = window.confirm("Chiqmoqchimisiz?");
+    if (!confirmLogout) return;
+
+
+    localStorage.removeItem("token");
+    Cookies.remove("token");
+    Cookies.remove("user");
+
+  
+    dispatch(logoutUser());
+
+   
+    window.dispatchEvent(new Event("auth-change"));
+
+  
+    navigate("/");
+  };
 
   const menuItems = [
     { id: "account", label: "Account Details", icon: "ri-user-line" },
@@ -20,17 +41,9 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
     { id: "track-order", label: "Track Order", icon: "ri-truck-line" },
   ];
 
-  const handleLogout = () => {
-    const confirm = window.confirm("Chiqmoqchimisiz?");
-    if (confirm) {
-      localStorage.removeItem("token");
-      navigate(""); 
-    }
-  };
-
   return (
     <div className="bg-[#FBFBFB] rounded-md shadow-sm h-fit">
-      <h2 className="text-[18px] font-bold p-4 pl-5 text-[#3D3D3D] border-b border-[#46A358]/20">
+      <h2 className="text-[18px] font-bold p-4 pl-5 text-[#3D3D3D] border-b border-nav/20">
         My Account
       </h2>
 
@@ -38,12 +51,11 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
         {menuItems.map((item) => (
           <div
             key={item.id}
-           
             onClick={() => setActiveTab(item.id)}
             className={`cursor-pointer flex items-center gap-3 px-5 py-3 text-[15px] transition-all duration-300 border-l-[5px] ${
               activeTab === item.id
-                ? "border-[#46A358] text-[#46A358] bg-white font-bold shadow-sm" 
-                : "border-transparent text-[#727272] hover:text-[#46A358] hover:bg-white" 
+                ? "border-nav text-nav bg-white font-bold shadow-sm"
+                : "border-transparent text-[#727272] hover:text-nav hover:bg-white"
             }`}
           >
             <i className={`${item.icon} text-lg`}></i>
@@ -52,7 +64,7 @@ const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
         ))}
       </div>
 
-      <div className="border-t border-[#46A358]/20 mt-2">
+      <div className="border-t border-nav/20 mt-2">
         <button
           onClick={handleLogout}
           className="w-full flex items-center gap-3 px-5 py-4 text-[15px] text-[#727272] hover:text-[#FF0000] hover:bg-white border-l-[5px] border-transparent transition-all font-medium"
