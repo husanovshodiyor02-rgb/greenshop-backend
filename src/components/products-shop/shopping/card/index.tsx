@@ -52,7 +52,7 @@ const Card: FC<ShopCartType> = (props) => {
         {userPrice?.toFixed(2)}$
       </div>
 
-      <div className="flex justify-start sm:justify-center w-full sm:w-[auto]">
+      <div className="flex justify-start sm:justify-center w-full sm:w-auto">
         <DeleteFilled
           onClick={() => dispatch(deleteData(_id))}
           className="text-[#727272] hover:text-nav text-[20px] cursor-pointer"

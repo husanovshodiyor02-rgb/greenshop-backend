@@ -48,10 +48,10 @@ const MyProducts = () => {
   };
 
   return (
-    <div className="container mx-auto px-5 py-10 max-w-[1260px]">
+    <div className="container mx-auto px-5 py-10 max-w-315">
 
       {isLoading ? (
-        <div className="flex justify-center items-center h-[300px]">
+        <div className="flex justify-center items-center h-75">
           <Spin indicator={antIcon} />
         </div>
       ) : products && products.length > 0 ? (
@@ -62,7 +62,7 @@ const MyProducts = () => {
               className="relative transition-all duration-300"
             >
          
-              <div className="group hover:border-t-2 border-white hover:border-nav rounded-[9px] h-[260px] bg-[#f2f2f2] flex justify-center items-center relative overflow-hidden transition-all duration-300">
+              <div className="group hover:border-t-2 border-white hover:border-nav rounded-[9px] h-65 bg-[#f2f2f2] flex justify-center items-center relative overflow-hidden transition-all duration-300">
                 {item.detailed_images?.length > 0 ? (
                   <img
                     src={item.detailed_images[0]}

@@ -86,7 +86,7 @@ const Blog = () => {
   return (
     <div className="bg-white min-h-screen">
       <Header />
-      <div className="container mx-auto px-5 py-10 max-w-[1440px]">
+      <div className="container mx-auto px-5 py-10 max-w-360">
         <MonetizeBanner />
 
         {selectedBlog ? (
@@ -94,7 +94,7 @@ const Blog = () => {
           <div className="animate-fade-in max-w-4xl mx-auto">
             <button
               onClick={handleBack}
-              className="flex items-center gap-2 text-[#46A358] font-bold mb-6 hover:underline transition-all"
+              className="flex items-center gap-2 text-nav font-bold mb-6 hover:underline transition-all"
             >
               <FiArrowLeft size={20} /> Back to Blog
             </button>
@@ -105,7 +105,7 @@ const Blog = () => {
               </h1>
 
               <div className="flex items-center gap-6 text-gray-500 text-sm mb-8 border-b pb-4">
-                <span className="flex items-center gap-1 text-[#46A358]">
+                <span className="flex items-center gap-1 text-nav">
                   <FiEye />
                   {(selectedBlog.views || 0) +
                     (viewIncrements[selectedBlog._id] || 0)}{" "}
@@ -130,15 +130,15 @@ const Blog = () => {
           <>
          
             <div className="flex justify-center mb-12">
-              <div className="relative w-full max-w-[500px]">
+              <div className="relative w-full max-w-125">
                 <input
                   type="text"
                   placeholder="Search here..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full h-[45px] pl-4 pr-12 border border-[#EAEAEA] rounded-[6px] focus:outline-none focus:border-[#46A358] text-sm text-[#3D3D3D] shadow-sm"
+                  className="w-full h-11.25 pl-4 pr-12 border border-[#EAEAEA] rounded-md focus:outline-none focus:border-nav text-sm text-[#3D3D3D] shadow-sm"
                 />
-                <button className="absolute right-0 top-0 h-full w-[50px] bg-[#46A358] rounded-r-[6px] flex items-center justify-center text-white cursor-pointer hover:bg-[#357a40] transition-all">
+                <button className="absolute right-0 top-0 h-full w-12.5 bg-nav rounded-r-md flex items-center justify-center text-white cursor-pointer hover:bg-[#357a40] transition-all">
                   {isLoading ? (
                     <LoadingOutlined spin />
                   ) : (
@@ -150,7 +150,7 @@ const Blog = () => {
 
            
             {isLoading ? (
-              <div className="flex justify-center items-center h-[300px]">
+              <div className="flex justify-center items-center h-75">
                 <Spin indicator={antIcon} />
               </div>
             ) : blogs && blogs.length > 0 ? (
@@ -159,23 +159,23 @@ const Blog = () => {
                   <div
                     key={item._id}
                     onClick={() => handleCardClick(item)}
-                    className="bg-[#FBFBFB] rounded-[10px] p-5 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-[280px] border border-transparent hover:border-[#46A358]/20 group"
+                    className="bg-[#FBFBFB] rounded-[10px] p-5 cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-70 border border-transparent hover:border-nav/20 group"
                   >
-                    <h3 className="font-bold text-[#3D3D3D] text-[17px] mb-3 line-clamp-2 leading-tight group-hover:text-[#46A358] transition-colors">
+                    <h3 className="font-bold text-[#3D3D3D] text-[17px] mb-3 line-clamp-2 leading-tight group-hover:text-nav transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-[#727272] text-[13px] leading-6 line-clamp-4 flex-grow">
+                    <p className="text-[#727272] text-[13px] leading-6 line-clamp-4 grow">
                       {item.short_description}
                     </p>
 
                     <div className="mt-4 pt-4 border-t border-[#EAEAEA] flex justify-between items-center text-[#727272] text-[12px]">
-                      <div className="flex items-center gap-1.5 hover:text-[#46A358] transition-colors">
+                      <div className="flex items-center gap-1.5 hover:text-nav transition-colors">
                         <FiEye size={14} />
                         <span>
                           {(item.views || 0) + (viewIncrements[item._id] || 0)}
                         </span>
                       </div>
-                      <div className="flex items-center gap-1.5 hover:text-[#46A358] transition-colors">
+                      <div className="flex items-center gap-1.5 hover:text-nav transition-colors">
                         <FiMessageSquare size={14} /> <span>0</span>
                       </div>
                       <div className="flex items-center gap-1.5 hover:text-red-500 transition-colors">

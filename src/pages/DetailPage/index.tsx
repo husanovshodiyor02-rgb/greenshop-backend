@@ -45,7 +45,7 @@ const DetailPage = () => {
         <h2 className="text-red-500 font-bold text-xl">Product not found!</h2>
         <button
           onClick={() => navigate("/")}
-          className="bg-[#46A358] text-white px-6 py-2 rounded-md hover:bg-[#357a40] transition-all"
+          className="bg-nav text-white px-6 py-2 rounded-md hover:bg-[#357a40] transition-all"
         >
            Back to Home
         </button>
@@ -53,8 +53,8 @@ const DetailPage = () => {
     );
 
 
-  const images = product.detail_image?.length
-    ? product.detail_image
+  const images = product.detailed_images?.length
+    ? product.detailed_images
     : [product.main_image];
 
   const currentImage = selectedImage || product.main_image;
@@ -74,11 +74,11 @@ const DetailPage = () => {
   return (
     <div>
       <Header />
-      <div className="container mx-auto px-4 md:px-10 mt-6 mb-20 max-w-[1440px]">
+      <div className="container mx-auto px-4 md:px-10 mt-6 mb-20 max-w-360">
         <div className="mb-8 text-sm text-[#3D3D3D] flex items-center">
           <span
             onClick={() => navigate("/")}
-            className="font-bold cursor-pointer text-[#46A358] transition-colors flex items-center gap-0.5"
+            className="font-bold cursor-pointer text-nav transition-colors flex items-center gap-0.5"
           >
             <CiCircleChevLeft className="text-nav text-lg" /> back to products
           </span>
@@ -86,18 +86,18 @@ const DetailPage = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-14">
           <div className="flex flex-col-reverse md:flex-row gap-4 h-fit">
-            <div className="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto md:h-[450px] scrollbar-hide py-2 md:py-0">
+            <div className="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto md:h-112.5 scrollbar-hide py-2 md:py-0">
               {images.map((img: string, idx: number) => (
                 <div
                   key={idx}
                   onClick={() => setSelectedImage(img)}
                   className={`
-                  w-20 h-20 md:w-24 md:h-24 flex-shrink-0 bg-[#fbfbfb] cursor-pointer 
+                  w-20 h-20 md:w-24 md:h-24 shrink-0 bg-[#fbfbfb] cursor-pointer 
                   border transition-all duration-300 flex justify-center items-center rounded-lg
                   ${
                     currentImage === img
-                      ? "border-[#46A358] shadow-md scale-95"
-                      : "border-transparent hover:border-[#46A358]"
+                      ? "border-nav shadow-md scale-95"
+                      : "border-transparent hover:border-nav"
                   }
                 `}
                 >
@@ -110,12 +110,12 @@ const DetailPage = () => {
               ))}
             </div>
 
-            <div className="flex-1 bg-[#FBFBFB] border border-[#EAEAEA] rounded-lg relative overflow-hidden h-[350px] md:h-[450px] flex items-center justify-center group">
+            <div className="flex-1 bg-[#FBFBFB] border border-[#EAEAEA] rounded-lg relative overflow-hidden h-112.5 md:h-112.5 flex items-center justify-center group">
               <div className="w-full h-full flex items-center justify-center p-6 transition-transform duration-500 hover:scale-105">
                 <Image
                   src={currentImage}
                   alt={product.title}
-                  className="object-contain !h-full !w-full mix-blend-multiply"
+                  className="object-contain `!h-full` `!w-full` mix-blend-multiply"
                 />
               </div>
               <div className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -130,7 +130,7 @@ const DetailPage = () => {
             </h1>
 
             <div className="flex items-center justify-between border-b border-[#EAEAEA] pb-4 mt-3">
-              <span className="text-[#46A358] text-[20px] font-bold">
+              <span className="text-nav text-[20px] font-bold">
                 ${product.price}
               </span>
               <div className="flex items-center gap-2">
@@ -181,14 +181,14 @@ const DetailPage = () => {
               <div className="flex gap-3 w-full sm:w-auto">
                 <button
                   onClick={handleBuyNow}
-                  className="flex-1 sm:w-[130px] bg-[#46A358] text-white py-3 rounded-[6px] font-bold transition-all uppercase text-sm shadow-lg shadow-green-100"
+                  className="flex-1 sm:w-32.5 bg-nav text-white py-3 rounded-md font-bold transition-all uppercase text-sm shadow-lg shadow-green-100"
                 >
                   Buy Now
                 </button>
 
                 <button
                   onClick={handleAddToCart}
-                  className="flex-1 sm:w-[130px] border border-[#46A358] text-[#46A358] py-3 rounded-[6px] font-bold transition-all uppercase text-sm"
+                  className="flex-1 sm:w-32.5 border border-nav text-nav py-3 rounded-md font-bold transition-all uppercase text-sm"
                 >
                   Add to Cart
                 </button>
@@ -224,7 +224,7 @@ const DetailPage = () => {
 
         <div className="mt-20">
           <div className="flex gap-8 border-b border-[#EAEAEA] mb-6">
-            <h3 className="font-bold text-[17px] border-b-2 text-[#605f5f] border-[#46A358] pb-4 cursor-pointer">
+            <h3 className="font-bold text-[17px] border-b-2 text-[#605f5f] border-nav pb-4 cursor-pointer">
               Product Description
             </h3>
           </div>

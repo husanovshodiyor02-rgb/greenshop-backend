@@ -78,7 +78,7 @@ export interface ProductType {
     short_description: string;
     description: string;
     category: string;
-    detail_image: string[];
+    detailed_images: string[];
     rate: number;
     views: string;
     tags: [];

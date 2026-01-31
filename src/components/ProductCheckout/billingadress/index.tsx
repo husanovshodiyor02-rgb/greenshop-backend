@@ -40,7 +40,7 @@ const InputField = ({
       required={required}
       type={type}
       placeholder={placeholder}
-      className="border border-[#EAEAEA] rounded-[6px] p-3 text-[14px] focus:outline-none focus:border-[#46A358] focus:ring-1 focus:ring-[#46A358] placeholder:text-gray-400 transition-all"
+      className="border border-[#EAEAEA] rounded-md p-3 text-[14px] focus:outline-none focus:border-nav focus:ring-1 focus:ring-nav placeholder:text-gray-400 transition-all"
     />
   </div>
 );
@@ -223,7 +223,7 @@ const CheckoutPage = () => {
                 <label className="text-[15px] text-[#3D3D3D] font-medium">
                   Phone Number <span className="text-red-500">*</span>
                 </label>
-                <div className="flex border border-[#EAEAEA] rounded-[6px] overflow-hidden focus-within:border-[#46A358] focus-within:ring-1 focus-within:ring-[#46A358] transition-all">
+                <div className="flex border border-[#EAEAEA] rounded-md overflow-hidden focus-within:border-nav focus-within:ring-1 focus-within:ring-nav transition-all">
                   <span className="p-3 border-r border-[#EAEAEA]">+998</span>
                   <input
                     name="phone"
@@ -247,7 +247,7 @@ const CheckoutPage = () => {
                 value={formData.comment}
                 onChange={handleInputChange}
                 placeholder="Enter your comment..."
-                className="border border-[#EAEAEA] rounded-[6px] p-3 h-[120px] text-[14px] focus:outline-none focus:border-[#46A358] focus:ring-1 focus:ring-[#46A358] resize-none transition-all"
+                className="border border-[#EAEAEA] rounded-md p-3 h-30 text-[14px] focus:outline-none focus:border-nav focus:ring-1 focus:ring-nav resize-none transition-all"
               />
             </div>
           </div>
@@ -256,7 +256,7 @@ const CheckoutPage = () => {
           <div className="w-full lg:w-[35%]">
             <div className="bg-[#FBFBFB] p-6 rounded-lg border border-[#EAEAEA] sticky top-5">
             
-              <div className="flex flex-col gap-4 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar mb-6">
+              <div className="flex flex-col gap-4 max-h-75 overflow-y-auto pr-2 custom-scrollbar mb-6">
                 {data?.length > 0 ? (
                   data.map((item: ShopCartType) => (
                     <div
@@ -264,7 +264,7 @@ const CheckoutPage = () => {
                       className="flex justify-between items-center border-b border-[#EAEAEA] pb-3 last:border-0"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-[50px] h-[50px] bg-white rounded-full border p-1 flex-shrink-0">
+                        <div className="w-12.5 h-12.5 bg-white rounded-full border p-1 shrink-0">
                           <img
                             src={item.main_image}
                             alt={item.title}
@@ -272,7 +272,7 @@ const CheckoutPage = () => {
                           />
                         </div>
                         <div>
-                          <h4 className="text-[14px] font-semibold text-[#3D3D3D] line-clamp-1 max-w-[120px]">
+                          <h4 className="text-[14px] font-semibold text-[#3D3D3D] line-clamp-1 max-w-30">
                             {item.title}
                           </h4>
                           <p className="text-[12px] text-[#727272]">
@@ -287,7 +287,7 @@ const CheckoutPage = () => {
                         <p className="text-[#727272] text-[12px] font-medium">
                           x{item.counter}
                         </p>
-                        <p className="text-[#46A358] font-bold text-[14px]">
+                        <p className="text-nav font-bold text-[14px]">
                           ${(item.price * item.counter).toFixed(2)}
                         </p>
                       </div>
@@ -318,7 +318,7 @@ const CheckoutPage = () => {
                   <span className="text-[#3D3D3D] font-bold text-[16px]">
                     Total
                   </span>
-                  <span className="font-bold text-[#46A358] text-[20px]">
+                  <span className="font-bold text-nav text-[20px]">
                     ${total.toFixed(2)}
                   </span>
                 </div>
@@ -337,7 +337,7 @@ const CheckoutPage = () => {
                   <div
                     className={`border rounded-lg p-3 cursor-pointer transition-all ${
                       paymentMethod === "paypal"
-                        ? "border-[#46A358] bg-[#46A358]/5"
+                        ? "border-nav bg-nav/5"
                         : "border-[#EAEAEA]"
                     }`}
                     onClick={() => setPaymentMethod("paypal")}
@@ -352,7 +352,7 @@ const CheckoutPage = () => {
                   <div
                     className={`border rounded-lg p-3 cursor-pointer transition-all ${
                       paymentMethod === "bank"
-                        ? "border-[#46A358] bg-[#46A358]/5"
+                        ? "border-nav bg-nav/5"
                         : "border-[#EAEAEA]"
                     }`}
                     onClick={() => setPaymentMethod("bank")}
@@ -367,7 +367,7 @@ const CheckoutPage = () => {
                   <div
                     className={`border rounded-lg p-3 cursor-pointer transition-all ${
                       paymentMethod === "cash"
-                        ? "border-[#46A358] bg-[#46A358]/5"
+                        ? "border-nav bg-nav/5"
                         : "border-[#EAEAEA]"
                     }`}
                     onClick={() => setPaymentMethod("cash")}
@@ -383,7 +383,7 @@ const CheckoutPage = () => {
 
               <button
                 type="submit"
-                className="w-full mt-6 bg-[#46A358] text-white py-3 rounded-[6px] text-[16px] font-bold hover:bg-[#357c44] transition-all shadow-md active:scale-95"
+                className="w-full mt-6 bg-nav text-white py-3 rounded-md text-[16px] font-bold hover:bg-[#357c44] transition-all shadow-md active:scale-95"
               >
                 Place Order
               </button>
@@ -401,7 +401,7 @@ const CheckoutPage = () => {
           className="checkout-modal"
         >
           <div className="flex flex-col items-center pt-4 pb-2 text-center">
-            <div className="w-[80px] h-[80px] bg-[#46A358]/10 rounded-full flex items-center justify-center mb-4 animate-bounce">
+            <div className="w-20 h-20 bg-nav/10 rounded-full flex items-center justify-center mb-4 animate-bounce">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/190/190411.png"
                 alt="success"
@@ -447,7 +447,7 @@ const CheckoutPage = () => {
             Order Details
           </h3>
 
-          <div className="flex flex-col gap-3 mb-6 max-h-[200px] overflow-y-auto pr-1 custom-scrollbar">
+          <div className="flex flex-col gap-3 mb-6 max-h-50 overflow-y-auto pr-1 custom-scrollbar">
             {data?.map((item: ShopCartType) => (
               <div
                 key={item._id}
@@ -459,14 +459,14 @@ const CheckoutPage = () => {
                     x{item.counter}
                   </span>
                 </span>
-                <span className="font-bold text-[#46A358] text-sm">
+                <span className="font-bold text-nav text-sm">
                   ${(item.price * item.counter).toFixed(2)}
                 </span>
               </div>
             ))}
             <div className="flex justify-between items-center pt-2 mt-1 border-t">
               <span className="font-bold text-[#3D3D3D]">Total</span>
-              <span className="font-bold text-[#46A358] text-[16px]">
+              <span className="font-bold text-nav text-[16px]">
                 ${total.toFixed(2)}
               </span>
             </div>
@@ -474,7 +474,7 @@ const CheckoutPage = () => {
 
           <button
             onClick={() => navigate("/")}
-            className="w-full bg-[#46A358] text-white font-bold py-3 rounded-full hover:bg-[#357c44] transition-all"
+            className="w-full bg-nav text-white font-bold py-3 rounded-full hover:bg-[#357c44] transition-all"
           >
             Track your order
           </button>
